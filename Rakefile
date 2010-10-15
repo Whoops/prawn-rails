@@ -1,9 +1,43 @@
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
+require 'rake/gempackagetask'
+require 'rubygems'
 
-desc 'Default: run unit tests.'
-task :default => :test
+PKG_FILES = FileList[
+  '[a-zA-Z]*',  
+  'lib/**/*',
+  'rails/**/*',  
+  'test/**/*'
+]
+
+spec = Gem::Specification.new do |s|
+  s.name = "prawn_rails"
+  s.version = "0.0.1"
+  s.author = "Walton Hoops"
+  s.email = "me@waltonhoops.com"
+  s.homepage = "http://github.com/Volundr/prawn-rails"
+  s.add_dependency('rails', '>=3.0.0')
+  s.add_dependency('prawn', '>=0.8.4')
+  s.platform = Gem::Platform::RUBY
+  s.summary = "Integrates Prawn into Rails in a natural way"
+  s.description=<<-EOF
+  The prawn_rails gem provides a clean way to integrate Prawn into
+  Rails as a view engine in a natural way
+  EOF
+  s.files = PKG_FILES.to_a
+  s.require_path = "lib"
+  s.has_rdoc = false
+  s.extra_rdoc_files = ["README"]
+end
+
+desc 'Default: create gem'
+task :default => :gem
+
+desc 'Turn this plugin into a gem.'
+Rake::GemPackageTask.new(spec) do |pkg|
+  pkg.gem_spec = spec
+end
 
 desc 'Test the prawn_rails plugin.'
 Rake::TestTask.new(:test) do |t|
