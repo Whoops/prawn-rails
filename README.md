@@ -23,7 +23,7 @@ Usage
 prawn_rails is designed to provide only a very thin wrapper around Prawn itself.  A prawn_rails view should consist of only a call to the function prawn_document and a block.  This will create an instance of Prawn::Document and yield it to the block.
 For a simple pdf view try:
 
-simple.pdf.prawn
+views/.../simple.pdf.prawn
 
     prawn_document() do |pdf|
       pdf.text "Hello World"
@@ -41,7 +41,7 @@ home_controller.rb
       end
     end
     
-index.pdf.prawn
+views/.../index.pdf.prawn
 
     prawn_document(:page_layout => :landscape) do |pdf|
       @people.each {|person| pdf.text person}
@@ -51,7 +51,7 @@ This will produce a pdf with Jane, John, and Jack all written on seperate lines.
 
 Notice we passed a hash into prawn_document.  Any parameters placed in this hash will be passed to the constructor of Prawn::Document, with one exception.  The renderer option will be removed before creating the document and can be used to override the class to be used for rendering with a subclass of Prawn::Document like so:
 
-override.pdf.prawn
+views/.../override.pdf.prawn
     
     prawn_document({:renderer => ApplicationHelper::Foo})
     
