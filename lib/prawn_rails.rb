@@ -9,7 +9,7 @@ module Prawn
       
       def prawn_document(opts={})
         pdf = (opts.delete(:renderer) || Prawn::Document).new
-        yield pdf
+        yield pdf if block_given?
         
         pdf
       end
@@ -20,7 +20,7 @@ module Prawn
       self.default_format = :pdf
       
       def self.call(template)
-        "#{template.source}.render"        
+        "#{template.source.strip}.render"        
       end
       
     end
