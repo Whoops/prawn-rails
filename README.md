@@ -49,13 +49,13 @@ index.pdf.prawn
     
 This will produce a pdf with Jane, John, and Jack all written on seperate lines.
 
-Notice we passed a hash into prawn_document.  Any parameters placed in this hash will be passed to the constructor of Prawn::Document, with one exception:
+Notice we passed a hash into prawn_document.  Any parameters placed in this hash will be passed to the constructor of Prawn::Document, with one exception.  The renderer option will be removed before creating the document and can be used to override the class to be used for rendering with a subclass of Prawn::Document like so:
 
 override.pdf.prawn
     
     prawn_document({:renderer => ApplicationHelper::Foo})
     
-The renderer option allows you to override the class to be used for rendering with a subclass of Prawn::Document.  So for the view above you could have an application helper file that looks like:
+So for the view above you could have an application helper file that looks like:
 
 application_helper.rb
 
