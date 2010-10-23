@@ -75,7 +75,7 @@ The one major gotcha at this point is that layouts do not work.  Do not attempt 
 
 == Examples
 
-For examples see: http://github.com/Volundr/prawn_rails_demo
+For examples see: http://prawn-rails-demo.heroku.com
 
 
 Copyright (c) 2010 Walton Hoops, released under the MIT license
