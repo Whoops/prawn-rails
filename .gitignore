@@ -1,2 +1,4 @@
 .redcar/*
 *.gem
+*~
+doc/*

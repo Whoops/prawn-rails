@@ -13,7 +13,7 @@ PKG_FILES = FileList[
 
 spec = Gem::Specification.new do |s|
   s.name = "prawn_rails"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
   s.author = "Walton Hoops"
   s.email = "me@waltonhoops.com"
   s.homepage = "http://github.com/Volundr/prawn-rails"
@@ -22,13 +22,12 @@ spec = Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.summary = "Integrates Prawn into Rails in a natural way"
   s.description=<<-EOF
-  The prawn_rails gem provides a clean way to integrate Prawn into
-  Rails as a view engine in a natural way
+  The prawn_rails gem provides a Prawn based view engine for creating PDFs with rails.
   EOF
   s.files = PKG_FILES.to_a
   s.require_path = "lib"
   s.has_rdoc = false
-  s.extra_rdoc_files = ["README"]
+  s.extra_rdoc_files = ["README.rdoc"]
 end
 
 desc 'Default: create gem'
