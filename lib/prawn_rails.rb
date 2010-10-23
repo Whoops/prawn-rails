@@ -8,7 +8,7 @@ module Prawn
     module PrawnHelper
       
       def prawn_document(opts={})
-        pdf = (opts.delete(:renderer) || Prawn::Document).new
+        pdf = (opts.delete(:renderer) || Prawn::Document).new(opts)
         yield pdf if block_given?
         
         pdf
