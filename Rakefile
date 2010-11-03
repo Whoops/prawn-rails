@@ -13,7 +13,7 @@ PKG_FILES = FileList[
 
 spec = Gem::Specification.new do |s|
   s.name = "prawn_rails"
-  s.version = "0.0.3"
+  s.version = "0.0.4"
   s.author = "Walton Hoops"
   s.email = "me@waltonhoops.com"
   s.homepage = "http://github.com/Volundr/prawn-rails"
