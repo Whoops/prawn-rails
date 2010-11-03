@@ -1,8 +1,8 @@
-= Prawn Rails
+= Prawn::Rails
 
-Prawn Rails provides a simple way of creating PDF views in Rails 3 using the prawn library.
+Prawn::Rails provides a simple way of creating PDF views in Rails 3 using the prawn library.
 
-To use Prawn Rails simply add the line
+To use Prawn::Rails simply add the line
 
     gem 'prawn_rails'
 
@@ -18,7 +18,7 @@ which will be used whenever the user requests a page with a 'pdf' extension
 
 == Usage
 
-prawn_rails is designed to provide only a very thin wrapper around Prawn itself.  A prawn_rails view should consist of only a call to the function prawn_document and a block.  This will create an instance of Prawn::Document and yield it to the block.
+Prawn::Rails is designed to provide only a very thin wrapper around Prawn itself.  A Prawn::Rails view should consist of only a call to the function prawn_document and a block.  This will create an instance of Prawn::Document and yield it to the block.
 For a simple pdf view try:
 
 views/.../simple.pdf.prawn
@@ -47,7 +47,9 @@ views/.../index.pdf.prawn
 
 This will produce a pdf with Jane, John, and Jack all written on seperate lines.
 
-Notice we passed a hash into prawn_document.  Any parameters placed in this hash will be passed to the constructor of Prawn::Document, with one exception.  The renderer option will be removed before creating the document and can be used to override the class to be used for rendering with a subclass of Prawn::Document like so:
+Notice we passed a hash into prawn_document.  Any parameters placed in this hash will be passed to the constructor of Prawn::Document, with a few exceptions. The :renderer, :force_download, and :filename options will not be passed on, but instead will be used as described below.
+
+The :renderer option will be removed before creating the document and can be used to override the class to be used for rendering with a subclass of Prawn::Document like so:
 
 views/.../override.pdf.prawn
 
@@ -68,6 +70,28 @@ application_helper.rb
   end
 
 This would generate a canned report with just the lines Foo and Bar.
+
+The :force_download option does makes the browser display a 'save as' dialog rather than attempting to display the content in browser (this is achieved by setting the Content-Dispoition header).
+Note: due to problems with the Acrobat Reader plugin, this defaults to true if the :filename option is used.
+
+views/.../saveas.pdf.prawn
+
+  prawn_document(:force_download=>true) do |pdf|
+    pdf.text "Hello World"
+  end
+
+The above will cause a 'save as' dialog to appear, even in browsers with a PDF plugin.
+
+Finally is the :filename option.  This allows you to override the default filename to something other than the name of the action.
+Note: You should include the .pdf extension in the filename.  Prawn::Rails will not do this for you.
+
+views/.../filename.pdf.prawn
+
+  prawn_document(:filename=>'Hello.pdf') do |pdf|
+    pdf.text "Hello World"
+  end
+
+This will result in the user being promted to download a file named 'Hello.pdf'.
 
 == Gotchas
 
