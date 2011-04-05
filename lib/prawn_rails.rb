@@ -1,6 +1,9 @@
 require 'prawn'
-require 'prawn/layout'
-require 'prawn/security'
+
+if Prawn::VERSION == "0.8.4"
+  require 'prawn/layout'
+  require 'prawn/security'
+end
 
 module Prawn
   module Rails
