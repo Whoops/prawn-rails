@@ -61,7 +61,7 @@ application_helper.rb
 
   module ApplicationHelper
     class Foo < Prawn::Document
-      def initialize
+      def initialize(opts={})
         super
         text "Foo"
         text "Bar"
