@@ -24,8 +24,8 @@ module Prawn
       def disposition(download, filename)
         download = true if (filename && download == nil)
         disposition = download ? "attachment;" : "inline;"
-        disposition += " filename=#{filename}" if filename
-        headers["Content-Disposition"]=disposition
+        disposition += " filename=\"#{filename}\"" if filename
+        headers["Content-Disposition"] = disposition
       end
       
     end
