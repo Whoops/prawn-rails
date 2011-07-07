@@ -2,3 +2,5 @@
 *.gem
 *~
 doc/*
+.idea/*
+pkg/*
