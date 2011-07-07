@@ -19,8 +19,10 @@ Gem::Specification.new do |s|
     "MIT-LICENSE",
     "README.rdoc",
     "Rakefile",
+    "VERSION",
     "init.rb",
     "lib/prawn_rails.rb",
+    "prawn_rails.gemspec",
     "rails/init.rb"
   ]
   s.homepage = %q{http://github.com/Volundr/prawn-rails}
