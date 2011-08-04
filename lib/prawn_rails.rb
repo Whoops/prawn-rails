@@ -30,7 +30,8 @@ module Prawn
       
     end
     
-    class TemplateHandler < ActionView::Template::Handler
+    class TemplateHandler
+      class_attribute :default_format
       self.default_format = :pdf
       
       def self.call(template)
