@@ -18,6 +18,8 @@ which will be used whenever the user requests a page with a 'pdf' extension
 
 == Usage
 
+=== Basic Usage
+
 Prawn::Rails is designed to provide only a very thin wrapper around Prawn itself.  A Prawn::Rails view should consist of only a call to the function prawn_document and a block.  This will create an instance of Prawn::Document and yield it to the block.
 For a simple pdf view try:
 
@@ -28,6 +30,26 @@ views/.../simple.pdf.prawn
   end
 
 This will create a simple PDF with only the text Hello World.
+
+=== Partials
+
+While layouts do not yet work with Prawn::Rails, partials work fine.  Rendering a partial is much like in a normal view.  For example:
+
+views/.../partial.pdf.prawn
+
+  prawn_document do |pdf|
+    render "frontpage", :pdf => pdf
+    pdf.text "something else"
+  end
+
+views/.../_frontpage.pdf.prawn
+
+  pdf.text "frontpage action!!"
+  pdf.start_new_page
+
+As you might expect this will result in a pdf with a leading page.
+
+=== Instance Variables
 
 Like normal Rails views, instance variables assigned in the controller are made available in the view.  For example:
 
@@ -46,6 +68,8 @@ views/.../index.pdf.prawn
   end
 
 This will produce a pdf with Jane, John, and Jack all written on seperate lines.
+
+=== Rendering Options
 
 Notice we passed a hash into prawn_document.  Any parameters placed in this hash will be passed to the constructor of Prawn::Document, with a few exceptions. The :renderer, :force_download, and :filename options will not be passed on, but instead will be used as described below.
 
@@ -71,7 +95,9 @@ application_helper.rb
 
 This would generate a canned report with just the lines Foo and Bar.
 
-The :force_download option does makes the browser display a 'save as' dialog rather than attempting to display the content in browser (this is achieved by setting the Content-Dispoition header).
+=== Force Saving
+
+The :force_download option makes the browser display a 'save as' dialog rather than attempting to display the content in browser (this is achieved by setting the Content-Dispoition header).
 Note: due to problems with the Acrobat Reader plugin, this defaults to true if the :filename option is used.
 
 views/.../saveas.pdf.prawn
