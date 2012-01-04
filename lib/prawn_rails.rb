@@ -43,6 +43,6 @@ module Prawn
   end
 end
 
-Mime::Type.register_alias "application/pdf", :pdf
+Mime::Type.register_alias("application/pdf", :pdf) unless Mime::Type.lookup_by_extension(:pdf)
 ActionView::Template.register_template_handler(:prawn, Prawn::Rails::TemplateHandler)
 ActionView::Base.send(:include, Prawn::Rails::PrawnHelper)
