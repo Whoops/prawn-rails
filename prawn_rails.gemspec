@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "prawn_rails"
-  s.version = "0.0.8"
+  s.version = "0.0.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Walton Hoops"]
-  s.date = "2012-01-04"
+  s.date = "2012-08-21"
   s.description = "The prawn_rails gem provides a Prawn based view engine for creating PDFs with rails."
   s.email = "me@waltonhoops.com"
   s.extra_rdoc_files = [
@@ -25,10 +25,10 @@ Gem::Specification.new do |s|
     "prawn_rails.gemspec",
     "rails/init.rb"
   ]
-  s.homepage = "http://github.com/Whoops/prawn-rails"
+  s.homepage = "http://github.com/Volundr/prawn-rails"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.24"
   s.summary = "Integrates Prawn into Rails in a natural way"
 
   if s.respond_to? :specification_version then
