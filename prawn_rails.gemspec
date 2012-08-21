@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
     "prawn_rails.gemspec",
     "rails/init.rb"
   ]
-  s.homepage = "http://github.com/Volundr/prawn-rails"
+  s.homepage = "http://github.com/Whoops/prawn-rails"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"

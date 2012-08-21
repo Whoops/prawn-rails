@@ -5,7 +5,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "prawn_rails"
   gem.author = "Walton Hoops"
   gem.email = "me@waltonhoops.com"
-  gem.homepage = "http://github.com/Volundr/prawn-rails"
+  gem.homepage = "http://github.com/Whoops/prawn-rails"
   gem.platform = Gem::Platform::RUBY
   gem.summary = "Integrates Prawn into Rails in a natural way"
   gem.description = "The prawn_rails gem provides a Prawn based view engine for creating PDFs with rails."
