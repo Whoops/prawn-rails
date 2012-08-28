@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/Whoops/prawn-rails"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.15"
+  s.rubygems_version = "1.8.23"
   s.summary = "Integrates Prawn into Rails in a natural way"
 
   if s.respond_to? :specification_version then
