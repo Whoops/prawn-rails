@@ -34,8 +34,8 @@ module Prawn
       class_attribute :default_format
       self.default_format = :pdf
 
-      def self.call(template)
-        "#{template.source.strip}"
+      def self.call(_template, source)
+        source.strip.to_s
       end
 
     end
